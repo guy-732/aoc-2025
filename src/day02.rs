@@ -38,7 +38,7 @@ fn part1_is_valid(num: u64) -> bool {
     let lower = num % middle;
     let upper = num / middle;
 
-    return lower != upper;
+    lower != upper
 }
 
 #[aoc(day02, part2)]
