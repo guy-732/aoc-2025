@@ -28,7 +28,7 @@ fn part1_is_valid(num: u64) -> bool {
     let v = num as f64;
     let size = v.log10().floor() as u32 + 1;
 
-    if size % 2 != 0 {
+    if !size.is_multiple_of(2) {
         return true;
     }
 
@@ -55,7 +55,7 @@ fn part2_is_valid(num: u64) -> bool {
     let size = v.log10().floor() as u32 + 1;
 
     'outer: for i in 2..=size {
-        if size % i != 0 {
+        if !size.is_multiple_of(i) {
             continue;
         }
 
