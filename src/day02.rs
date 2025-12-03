@@ -1,4 +1,5 @@
 use itertools::Itertools;
+use rayon::iter::{IntoParallelIterator, ParallelIterator};
 
 #[aoc_generator(day02)]
 fn parse(input: &str) -> Vec<(u64, u64)> {
@@ -21,7 +22,10 @@ fn part1(input: &[(u64, u64)]) -> u64 {
 }
 
 fn part1_check_range(range: (u64, u64)) -> u64 {
-    (range.0..=range.1).filter(|&n| !part1_is_valid(n)).sum()
+    (range.0..=range.1)
+        .into_par_iter()
+        .filter(|&n| !part1_is_valid(n))
+        .sum()
 }
 
 fn part1_is_valid(num: u64) -> bool {
@@ -47,7 +51,10 @@ fn part2(input: &[(u64, u64)]) -> u64 {
 }
 
 fn part2_check_range(range: (u64, u64)) -> u64 {
-    (range.0..=range.1).filter(|&n| !part2_is_valid(n)).sum()
+    (range.0..=range.1)
+        .into_par_iter()
+        .filter(|&n| !part2_is_valid(n))
+        .sum()
 }
 
 fn part2_is_valid(num: u64) -> bool {
