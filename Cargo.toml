@@ -8,4 +8,6 @@ aoc-runner = "0.3.0"
 aoc-runner-derive = "0.3.0"
 fnv = "1.0"
 itertools = "0.14"
+ndarray = { version = "0.17.1", features = ["rayon"] }
+ndarray-linalg = { version = "0.18.0", features = ["openblas-system"] }
 rayon = "1.11"
